@@ -1,0 +1,122 @@
+*{margin: 0;padding: 0;}
+body{background: #0e0d0c;overflow-x: hidden;}
+/*------------------------首页部分-----------------------*/
+/*header部分*/
+.header{margin-bottom:10px;width: 100%;float: left;position: fixed;left:0;top:0;background-image: url(../img/header.png);background-size: cover; background-repeat: no-repeat; font-size: 0.2rem/*;position: relative*/;z-index: 111;}
+.header .top{width: 90%;margin: 0 auto;margin-top: 0.2rem;margin-bottom:10px;}
+.top .left{background-image:url(../img/back_red.png);background-size:cover;background-repeat:no-repeat;width:0.27rem ;height: 0.42rem;float: left;}
+.top .center{background-image:url(../img/center.png);background-size:cover; background-repeat:no-repeat;float: left;width: 2.85rem;height: 0.30rem;margin-left: 0.9rem;margin-top: 0.1rem;}
+.top .logo{background-image:url(../img/logo.png);background-size:cover;background-repeat:no-repeat;float:left;width:0.66rem;height: 0.61rem;margin-left: 0.35rem;margin-top:-0.1rem}
+.open{-webkit-animation-name: rotate;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;}
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(-360deg);}
+}
+@-moz-keyframes rotate {
+  from {-moz-transform:rotate(0deg);}
+  to {-moz-transform:rotate(-360deg);}
+}
+@-ms-keyframes rotate {
+  from {-ms-transform:rotate(0deg);}
+  to {-ms-transform:rotate(-360deg);}
+}
+@keyframes rotate {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(-360deg);}
+}
+
+.header .ban{background-image: url(../img/banner_right.png);background-size: cover;background-repeat: no-repeat;width: 0.9rem;height: 0.75rem;position: absolute;right: 0;top: 0;}
+/*轮播部分*/
+.slider{width:100%;height:4rem;margin: 0 auto;margin-top: 1.0rem;}
+.slider li{position: relative;width:100%;height:100%;}
+.slider img{width: 100%;height: 100%;}
+.slider div{text-indent:0.2rem;font-family: "微软雅黑";font-size:20px;line-height:30px;width:100%;height:30px;position: absolute;left:0;top:3.58rem; -moz-box-shadow:1px 1px 3px #333333; -webkit-box-shadow:1px 1px 3px #333333; box-shadow:1px 1px 3px #333333;background: #dadada;opacity: 0.7;} 
+/*主题内容*/
+.content{width: 96%;margin:0 auto;padding-top: 0.2rem;padding-bottom:0.2rem;font-size: 25px;background: #1e1d1b;border-radius: 10px;color: #d13e5e;margin-top: 0.2rem;}
+.bao{width: 90%;margin: 0 auto;}
+.content .left{float: left;font-size: 25px;font-weight: bold;}
+.content .left img{width:0.16rem;}
+.content .right{float: right;}
+.content .border_Bottom{border:solid thin #454545;float: left;width: 99%;}
+.content .di{width: 95%;margin-top: 0.2rem;margin: 0 auto;clear: both;}
+.content .di li{width: 30%;height: 1.67rem;float: left;margin-top: 0.2rem;margin-left: 0.15rem;text-align:center;}
+.content .di li a{color: #FFF;}
+.content .di li a span{font-size:0.3rem;display:block;}
+.content .di li img{width: 100%;height: 75%;border-radius: 20px;}
+.content .di1{width: 100%;margin-top: 0.2rem;margin: 0 auto;clear: both;}
+.content .di1 li{width: 45%;height: 1.67rem;float: left;margin-left: 0.2rem;margin-top: 0.3rem;text-align:center;}
+.content .di1 li a{color: #FFF;}
+.content .di1 li a span{font-size:0.3rem;display:block;}
+.content .di1 li img{width: 80%;height: 80%;border-radius: 20px;}
+
+.topic{width: 100%;height: 1.0rem;float: left;}
+/*footer部分*/
+.footer{opacity:0.9;position: fixed;z-index:99;left: 0;bottom: 0;width: 100%;background-image: url(../img/footer.png);background-size:cover ;background-repeat:no-repeat ;font-size: 20px;padding-top: 0.1rem;}
+.footer .top{width: 90%;margin: 0 auto;}
+.footer li{float: left;width:calc(20% - 0.15rem);height: 90%;margin-left: 0.15rem;}
+.footer li img{width: 50%;}
+.active{opacity:0.5; }
+.active a{color:#FFF;}
+/*---------------------------订餐部分----------------------------*/
+.menu_header{width: 100%;float: left;position: fixed;background:url(../img/header.png) ;font-size: 0.3rem;text-align: center;color: white;padding-top: 0.2rem;padding-bottom: 0.2rem;}
+.menu_header .left{background-image: url(../img/back_white.png);background-repeat:no-repeat ;background-size: cover;width:0.27rem ;height:0.42rem ;float: left;}
+.menu_header .right{float: right;color: white;display: block;}
+.menu_content{width: 100%;height:150%;float: left;margin-top: 0.95rem;}
+.menu_contentcard{width: 100%;height:300%;float: left;margin-top: 0.95rem;}
+.menu_list{margin: 0 auto;width: 90%;border: solid thin #761474;font-size: 0.25rem;border-radius: 10px;}
+.menu_list li{text-indent: 20px;margin-top: 0.2rem;border: solid thin #761474;border-left: none;border-right: none;margin-bottom: 0.2rem;padding-top:0.2rem;padding-bottom:0.2rem}
+/*.menu_list li:nth-child(2){border-radius: 10px;}*/
+.menu_list li a{color:yellow;}
+.menu_list li .right{float: right;background-image:url(../img/red_right.png);background-repeat:no-repeat;background-size:cover;width:0.25rem ;height: 0.25rem;margin-right: 0.25rem;margin-top: 0.05rem;}
+.menu_list li .change{float: right;background-image:url(../img/red_bottom.png);background-repeat:no-repeat;background-size:cover;width:0.25rem ;height: 0.25rem;margin-right: 0.25rem;margin-top: 0.05rem;}
+/*显示部分*/
+.act{display: none;background: #454545;margin-top: 0.25rem;margin-bottom: 0.25rem;}
+.act .fen{float:left;width: 100%;height: 1.0rem;text-align: center;text-indent: 0;margin-bottom:0.2rem;margin-top: 0.2rem;}
+.act .clear{clear: both;width: 100%;border-top: solid thin #919191;}
+.act .fen img{width: 2.0rem;height: 1.0rem;display: block;float: left;}
+.act .fen section{float: left;}
+.act .fen section span{color: white;display:block;margin-top: 0.1rem;margin-left: 0.35rem;font-size: 0.25rem;}
+b{color: red;}
+/*购物车*/
+.act .fen .suan{width:1.5rem ;height: 0.5rem;float: right;margin-top: 0.25rem;border:none}
+.act .fen .suan input[type="button"]{width: 0.35rem;height:0.25rem;text-align: center;-webkit-appearance: none;background:white;border:none;border-radius:0px;line-height:0.25rem}
+.act .fen .suan input[type="text"]{width: 0.4rem;height:0.25rem;text-align: center;-webkit-appearance: none;border:none;border-radius:0px;line-height:0.25rem}
+/*总计*/
+.total{width: 100%;position: fixed;bottom: 0.85rem;height: 1rem;background: #1F1F1F;}
+.total input[type="button"]{width: 30%;float: right;text-align: center;height: 100%;font-size: 0.35rem;background: orangered;border:none;color: white;-webkit-appearance: none;}
+.total .bao{width: auto;float: right;margin-right: 0.25rem;}
+.total .tol{color: white;font-size: 0.35rem;display: block;}
+.total .express{color: white;font-size: 0.25rem;display: block;float: right;}
+/*卡片部分*/
+.card{width:1.0rem;height:1.9rem;float:left; margin-left:0.125rem; margin-top:0.15rem}
+.card img{width:100%; height:80%;}
+.card span{display:block; text-align:center; margin-top:0.05rem; color:#00CC99}
+/*订单列表*/
+.shop_list{width: 90%;margin:0 auto;font-size: 0.25rem;}
+.shop_list li{width: 100%;background: #454545;text-indent: 0.5rem;padding-top:0.1rem;padding-bottom: 0.1rem;margin-top: 0.2rem;}
+.shop_list li a{color: white;}
+.time{color: white;}
+.status{color: red;padding-left: 0.15rem;padding-right: 0.15rem;}
+.rate{color: white;}
+.shop_order{width: 100%;height: 0.8rem;position:fixed;left:0;bottom:1.1rem;float:left;text-align:center;font-size: 0.25rem;color: white;}
+.shop_order input{width: 100%;height: 0.8rem;background:orangered ;border: none;outline: none;color: white;font-size: 0.3rem;font-weight: bolder;-webkit-appearance: none;}
+.shop_order01{width: 100%;height: 0.8rem;position:fixed;left:0;bottom:2.1rem;float:left;text-align:center;font-size: 0.25rem;color: white;}
+.shop_order01 input{width: 100%;height: 0.8rem;background:orangered ;border: none;outline: none;color: white;font-size: 0.3rem;font-weight: bolder;-webkit-appearance: none;}
+/*订单详情*/
+.detail_list{width: 95%;margin: 0 auto;background: #454545;font-size: 0.25rem;color: white;}
+.detail_list li{text-indent: 0.25rem;padding-top: 0.2rem;color: white;}
+.detail_list .top{border-bottom: thin solid #919191;padding-bottom: 0.2rem;}
+.detail_list .status{color: red;padding:0;}
+.detail_list .time{color: white;}
+.detail_list .id_num{color: white;}
+.detail_list .medium{margin: 0 auto;width: 100%;margin-top: 0.25rem;border-bottom:thin solid #919191 ;padding-bottom: 0.25rem;}
+.medium tr{text-indent: 0.2rem;}
+.medium tr>td:first-child{text-align: left;}
+.medium tr>td:nth-child(2){text-align: left;}
+.medium tr>td:last-child{text-align: center;color: red;}
+.detail_pass{border-bottom:thin solid #919191 ;padding-bottom: 0.2rem;}
+.detail_bottom{border-bottom:thin solid #919191 ;padding-bottom: 0.2rem;}
+.rate_color{color: red;}

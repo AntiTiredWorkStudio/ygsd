@@ -1,0 +1,34 @@
+/*-----------------基本样式----------------*/
+html {
+    font-size: 50px;
+    color: #222;
+    font-family: "微软雅黑";
+    height: 100%;
+}
+
+::selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+a{text-decoration: none;}
+/*------------------------清除浮动部分-----------------*/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+.f_l{float: left;}
+.f_r{float: right;}

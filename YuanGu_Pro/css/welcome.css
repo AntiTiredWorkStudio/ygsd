@@ -1,0 +1,7 @@
+/*---------------样式开始----------------------------*/
+body{width: 100%;height: 100%;background-image: url(../img/bg.png) ;background-size: cover;background-repeat: no-repeat;z-index: 0;position: relative;/*box-shadow: 0 0 5px 2px rgba(0,0,0,.75);*/}
+.top{float:left;width: 100%;height: 2.38rem;position: relative;float: left;top: 25%;left: 0;}
+.beizi{width:0.78rem ;height: 2.38rem;position: absolute;left: 50%;background-image:url(../img/beizi.png);background-size:cover;background-repeat:no-repeat;margin-left: -0.3rem;}
+.xian{width: 100%;height:0.75rem ;position: absolute;bottom: -0.25rem;background-image: url(../img/xian.png);background-repeat:no-repeat ;background-size: contain;}
+.mid{width: 100%;height: 0.63rem;position:absolute;left:0;bottom:10%;font-size:0.15rem; }
+.mid .input{color: #761474;border: #761474 solid medium;border-radius: 30%;font-size:0.25rem;margin: 0 auto;display: block;text-align: center;height: 0.63rem;width: 1.5rem;line-height: 0.63rem;}

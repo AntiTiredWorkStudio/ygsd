@@ -41,3 +41,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+composer.json
+
+# 只忽略当前目录下的dbg文件和目录，子目录的dbg不在忽略范围内
+/vendor
+/qiniu

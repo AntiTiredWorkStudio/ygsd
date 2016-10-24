@@ -1,0 +1,11 @@
+.nav{width: 100%;float: left;font-size: 0.36rem;text-align: center;display: block;border-bottom: thin black solid;padding-top: 0.2rem;padding-bottom: 0.2rem;}
+.nav img{display: block;float: left;width: 0.27rem;height: 0.42rem;}
+.content{float: left;width: 100%;}
+.section{width: 90%;font-size: 0.3rem;margin: 0 auto;}
+.section input{margin-top:0.20rem;width: 100%;border:solid thin #cccccc;height:0.8rem ;line-height: 0.8rem;float: left;text-indent: 5px;display: block;}
+.section input:nth-child(4){width: 70%;float: left;}
+.section input:nth-child(5){width:calc(30% - 2px);float: left;height:0.85rem;font-size: 0.3rem;border: none;background: #df007f;color: white;text-align: center;text-indent:inherit;}
+.section .free{float: left;width: 100%;}
+.section .free input{display: block;float: left;width: auto;height: auto;}
+.section span{font-size: 0.22rem;display: block;float: left;height: 0.6rem;line-height: 0.6rem;text-align: center;}
+#Sub {background: #df007f;color: white;}

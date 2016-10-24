@@ -1,0 +1,1 @@
+select * from yg_admin where openid="oiqWTwmr-lCPaLJ8fnl3Qqv6wfkY"
