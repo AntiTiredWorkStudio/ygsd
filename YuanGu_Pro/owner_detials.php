@@ -10,6 +10,7 @@
 			if(isset($_GET['accd'])){
 				$accd = 'accd='.$_GET['accd'];
 				include_once('../manager/USManager.php');
+				//这里的引用容易出现问题
 			}
 			
 			$OM = new OrderManager();
