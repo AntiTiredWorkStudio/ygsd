@@ -5,6 +5,8 @@
 			include_once('../attach/Accessor.php');
 			include_once('../manager/USManager.php');
 			include_once('../manager/MenuManager.php');
+			include_once('../manager/SourcesManager.php');
+			use SourcesManager as S;
 			$MM = new MenuManager();
 		?>
 		<meta charset="UTF-8">

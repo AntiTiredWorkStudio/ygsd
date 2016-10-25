@@ -1,6 +1,7 @@
 <?php
 include_once('../conf.php');
 include_once('../responser/Respond.php');
+include_once('../manager/DBManager.php');
 $REQUEST = 'Setting.php?key='.constant("KEY").'&action=';
 //设置命令列表
 $ActionEventList = [
