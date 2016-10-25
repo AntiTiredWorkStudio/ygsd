@@ -3,6 +3,8 @@
 	<?php 
 		include_once('../conf.php');
 		include_once('../attach/Accessor.php');
+		include_once('../manager/SourcesManager.php');
+		use SourcesManager as S;
 	?>  
 	<head>
 		<meta charset="UTF-8">
@@ -45,18 +47,18 @@
 		<div class="slider clearfix" >
     	   <ul>
     		<li>
-    			<img src="http://ofaj2dlq0.bkt.clouddn.com/sources/IMG_0725.JPG">
+    			<img src="<?php echo S::_CS("sources/IMG_0725.JPG",0.5); ?>">
     		    <div>本店盛大开业</div>
     		</li>
-    		<li><img src="http://ofaj2dlq0.bkt.clouddn.com/sources/IMG_0726.JPG">
+    		<li><img src="<?php echo S::_CS("sources/IMG_0726.JPG",0.5); ?>">
     		    <div>本店开张，招收各地有志之士</div>
     		</li>
     		<li>
-    			<img src="http://ofaj2dlq0.bkt.clouddn.com/sources/IMG_0727.JPG">
+    			<img src="<?php echo S::_CS("sources/IMG_0727.JPG",0.5); ?>">
     			<div>到店享受即刻8折优惠</div>
     		</li>
     		<li>
-    			<img src="http://ofaj2dlq0.bkt.clouddn.com/sources/IMG_0728.JPG">
+    			<img src="<?php echo S::_CS("sources/IMG_0728.JPG",0.5); ?>">
     		    <div>high到爆的夜场生活</div>
     		</li>
     	</ul>
@@ -74,36 +76,36 @@
         	<div class="bao">
         		<div class="left clearfix">
 	        		<span>热门推荐</span>
-	        		<img src="img/list_1.png" style = "height:0.16rem;">
+	        		<img src="<?php echo S::_CS("img/list_1.png"); ?>" style = "height:0.16rem;">
         	    </div>
         	    <div class="right clearfix">
-        	        <a href="<?php echo _URL('ind');?>"><img src="img/list_right.png"></a>	
+        	        <a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/list_right.png"); ?>"></a>	
         	    </div>
         	</div>
         	<div class="border_Bottom clearfix"></div>
         	<div class="di">
         		<li>
-        			<a href="<?php echo _URL('wel');?>"><img src="img/img1.png"></a>
+        			<a href="<?php echo _URL('wel');?>"><img src="<?php echo S::_CS("img/img1.png"); ?>"></a>
 					<a href="<?php echo _URL('wel');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img1.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img1.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         	</div>
@@ -113,36 +115,36 @@
         	<div class="bao">
 	        	<div class="left clearfix">
 	        		<span>吧乐互动</span>
-	        		<img src="img/list_2.png" style = "height:0.21rem;">
+	        		<img src="<?php echo S::_CS("img/list_2.png"); ?>" style = "height:0.21rem;">
 	        	</div>
 	        	<div class="right clearfix">
-	        	    <a href="<?php echo _URL('ind');?>"><img src="img/list_right.png"></a>	
+	        	    <a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/list_right.png"); ?>"></a>	
 	        	</div>
         	</div>
         	<div class="border_Bottom clearfix"></div>
         	<div class="di1">
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img1.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img1.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img1.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img1.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         		<li>
-        			<a href="<?php echo _URL('ind');?>"><img src="img/img2.png"></a>
+        			<a href="<?php echo _URL('ind');?>"><img src="<?php echo S::_CS("img/img2.png"); ?>"></a>
 					<a href="<?php echo _URL('ind');?>"><span>context</span></a>
         		</li>
         	</div>
@@ -151,11 +153,11 @@
         <div class="footer ">
         	<div class="top">
 	        	<ul>
-	        		<li class="active"><a href="<?php echo _URL('ind');?>"><div><img src="img/li_1.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp首页</span></div></a></li>
-	        		<li><a href="<?php echo  _URL('men');?>"><div><img src="img/li_2.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp点餐</span></div></a></li>
-	        		<li><a href="<?php echo _URL('sho');?>"><div><img src="img/li_3.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp商城</span></div></a></li>
-	        		<li><a href="<?php echo _URL('card');?>"><div><img src="img/li_4.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp游戏</span></div></a></li>
-	        		<li><a href="<?php echo _URL('own');?>"><div><img src="img/li_5.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
+	        		<li class="active"><a href="<?php echo _URL('ind');?>"><div><img src="<?php echo S::_CS("img/li_1.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp首页</span></div></a></li>
+	        		<li><a href="<?php echo  _URL('men');?>"><div><img src="<?php echo S::_CS("img/li_2.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp点餐</span></div></a></li>
+	        		<li><a href="<?php echo _URL('sho');?>"><div><img src="<?php echo S::_CS("img/li_3.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp商城</span></div></a></li>
+	        		<li><a href="<?php echo _URL('card');?>"><div><img src="<?php echo S::_CS("img/li_4.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp游戏</span></div></a></li>
+	        		<li><a href="<?php echo _URL('own');?>"><div><img src="<?php echo S::_CS("img/li_5.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
 	        	</ul>
         	</div>
         	<script type="text/javascript">

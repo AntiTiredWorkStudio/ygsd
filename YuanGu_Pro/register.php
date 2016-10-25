@@ -2,6 +2,8 @@
 	<?php 
 		include_once('../conf.php');
 		include_once('../manager/DBManager.php');
+		include_once('../manager/SourcesManager.php');
+		use SourcesManager as S;
 		
 		
 	//	$username = "konglf";

@@ -26,7 +26,11 @@ $options = [
     'password'  => 'ygsdjkl',	//数据库用户密码
 	'database' => 'yg_database' ,	//数据库名
 	'access_token'=>'Wf-QESFHH9SOrLvuiImLShsSA1ztJRC7DN4ZVlRBdwMtgN3Z1EepOsLNF-O8wYC2PioYAp67N7vPeKQkzmz_qwR1-9oh0asZEntASI2XPHc',//Access_Token
-    //...
+	'qiniu_ak'=>'d-SztTGFAV7_BX-dKRtM8y1diABoXe1zxCgd-2yi',//	云盘access_key
+	'qiniu_sk'=>'CWv29dzAFng2KZ15Cf21Pv6FoOoWtB3-nzh1zgJH',//secret_key
+	'qiniu_bucket'=>'ygsdjkl',//空间名
+	'qiniu_domain'=>'http://ofaj2dlq0.bkt.clouddn.com/'//域名
+  //...
 ];
 $state = [
 	'Submiting'=>'还未确认',
@@ -107,6 +111,18 @@ $tables = [
 		 `State` enum(\'unregisted\', \'unline\', \'online\') NOT NULL ,
 		 `getDate` DATE NOT NULL ,
 		 `getTime` TIME NOT NULL
+		) ENGINE = InnoDB DEFAULT CHARSET=UTF8;',
+	],	//administrator记录表
+	'tSources' => [
+		'name'=>'yg_sources',
+		'command'=> 'CREATE TABLE yg_sources
+		(
+		 `id` int(11) NOT NULL ,
+		 `hash` VARCHAR(32) NOT NULL,
+		 `key` VARCHAR(128) NOT NULL,
+		 `Type` enum(\'image\', \'audio\', \'text\') NOT NULL ,
+		 `width` int(11) NOT NULL ,
+		 `height` int(11) NOT NULL
 		) ENGINE = InnoDB DEFAULT CHARSET=UTF8;',
 	],	//administrator记录表
 ];

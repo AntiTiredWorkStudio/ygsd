@@ -3,6 +3,8 @@
 	<?php 
 		include_once('../conf.php');
 		include_once('../attach/Accessor.php');
+		include_once('../manager/SourcesManager.php');
+		use SourcesManager as S;
 	?>  
 	<head>
 		<meta charset="UTF-8">
