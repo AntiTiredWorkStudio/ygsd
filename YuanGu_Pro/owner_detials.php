@@ -6,6 +6,11 @@
 			include_once('../attach/Accessor.php');
 			include_once('../manager/OrderManager.php');
 			include_once('../manager/MenuManager.php');
+			include_once('../manager/SourcesManager.php');
+			use SourcesManager as S;
+			
+			
+			
 			$accd = '';
 			if(isset($_GET['accd'])){
 				$accd = 'accd='.$_GET['accd'];

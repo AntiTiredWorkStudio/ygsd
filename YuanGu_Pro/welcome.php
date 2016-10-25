@@ -4,6 +4,8 @@
 	<?php 
 		include_once('../conf.php');
 		include_once('../attach/accessor.php');
+		include_once('../manager/SourcesManager.php');
+		use SourcesManager as S;
 	?>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
