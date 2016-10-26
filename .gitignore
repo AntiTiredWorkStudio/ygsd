@@ -47,3 +47,4 @@ composer.json
 /vendor
 /qiniu
 getLog.txt
+*.txt
