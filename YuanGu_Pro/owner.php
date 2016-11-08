@@ -52,15 +52,18 @@
 						continue;
 					}
 			?>
+			<div class="dingdan_mr">
 				<li><a href="<?php echo _URL('ownd','od='.$value['OrderSecret'].($accd==''?'':('&'.$accd)));?>">
 					<?php if($accd!=''){?>
-					<span class="time"><?php echo $USM->GetUser($value['UserID'])['nickname'];?></span>
-					<?php }?>
-					<span class="time"><?php echo $value['OrderDate'];?></span>
-					<span class="time"><?php echo $value['OrderTime'];?></span>
-					<span class="status"><?php echo _STATE($value['State']);?></span>
-					<span class="rate">￥<?php echo $value['OrderPrice'];?></span>
+					<span class="dingdan_name"><?php echo $USM->GetUser($value['UserID'])['nickname'];?></span>
+				</li>	<?php }?>
+				<li class="dingdan_li">	
+				    <span class="dingdan_time"><?php echo $value['OrderDate'];?></span>
+					<span class="dingdan_time"><?php echo $value['OrderTime'];?></span>
+					<span class="dingdan_status"><?php echo _STATE($value['State']);?></span>
+					<span class="dingdan_rate">￥<?php echo $value['OrderPrice'];?></span>
 				</a></li>
+		    </div>
 			<?php }?>
 			</ul>
 		</div>
