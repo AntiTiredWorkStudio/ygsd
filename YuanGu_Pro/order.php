@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="menu_content clearfix">
-			<ul class="menu_list">
+			<ul class="menu_list" >
 				<!--第一个-->
 				<?php 
 					$index = 1;
@@ -76,10 +76,11 @@
 				?>
 				</li>
 			</ul>
+			<div style="background: yellow;width: 100%;height: 2.0rem;visibility: hidden;">
+			
+		   </div>
 		</div>
-		<section style="font-size: 0.25rem;color: white;margin: 0 auto;text-align: center;margin-bottom: 2.0rem;visibility: hidden; ">
-			xxx
-		</section>
+		
 		<div class="footer ">
         	<div class="top">
 	        	<ul>

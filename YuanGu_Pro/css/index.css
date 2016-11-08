@@ -64,8 +64,8 @@ body{background: #0e0d0c;overflow-x: hidden;}
 .menu_header{width: 100%;float: left;position: fixed;background:url(../img/header.png) ;font-size: 0.3rem;text-align: center;color: white;padding-top: 0.2rem;padding-bottom: 0.2rem;}
 .menu_header .left{background-image: url(../img/back_white.png);background-repeat:no-repeat ;background-size: cover;width:0.27rem ;height:0.42rem ;float: left;}
 .menu_header .right{float: right;color: white;display: block;}
-.menu_content{width: 100%;height:150%;float: left;margin-top: 0.95rem;}
-.menu_contentcard{width: 100%;height:170%;float: left;margin-top: 0.95rem;}
+.menu_content{width: 100%;float: left;margin-top: 0.95rem;}
+.menu_contentcard{width: 100%;float: left;margin-top: 0.95rem;}
 .menu_list{margin: 0 auto;width: 90%;border: solid thin #761474;font-size: 0.25rem;border-radius: 10px;}
 .menu_list li{text-indent: 20px;margin-top: 0.2rem;border: solid thin #761474;border-left: none;border-right: none;margin-bottom: 0.2rem;padding-top:0.2rem;padding-bottom:0.2rem}
 /*.menu_list li:nth-child(2){border-radius: 10px;}*/
@@ -75,7 +75,7 @@ body{background: #0e0d0c;overflow-x: hidden;}
 /*显示部分*/
 .act{display: none;background: #454545;margin-top: 0.25rem;margin-bottom: 0.25rem;}
 .act .fen{float:left;width: 100%;height: 1.0rem;text-align: center;text-indent: 0;margin-bottom:0.2rem;margin-top: 0.2rem;}
-.act .clear{clear: both;width: 100%;border-top: solid thin #919191;}
+.act .clear{clear: both;width: 100%;border-top: solid thin #919191; }
 .act .fen img{width: 2.0rem;height: 1.0rem;display: block;float: left;}
 .act .fen section{float: left;}
 .act .fen section span{color: white;display:block;margin-top: 0.1rem;margin-left: 0.35rem;font-size: 0.25rem;}
@@ -91,16 +91,17 @@ b{color: red;}
 .total .tol{color: white;font-size: 0.35rem;display: block;}
 .total .express{color: white;font-size: 0.25rem;display: block;float: right;}
 /*卡片部分*/
-.card{width:1.0rem;height:1.9rem;float:left; margin-left:0.125rem; margin-top:0.15rem}
+.card{width:1.0rem;height:1.9rem;float:left; margin-left:0.125rem; margin-top:0.15rem;padding-bottom: 0.2rem;}
 .card img{width:100%; height:80%;}
 .card span{display:block; text-align:center; margin-top:0.05rem; color:#00CC99}
 /*订单列表*/
 .shop_list{width: 90%;margin:0 auto;font-size: 0.25rem;}
-.shop_list li{width: 100%;background: #454545;text-indent: 0.5rem;padding-top:0.1rem;padding-bottom: 0.1rem;margin-top: 0.2rem;}
+.shop_list li{width: 100%;text-indent: 0.5rem;padding-top:0.1rem;padding-bottom: 0.1rem;margin-top: 0.2rem;}
 .shop_list li a{color: white;}
-.time{color: white;}
+/*.uname{color:red; display: block;}*/
+/*.time{color: white;margin-left: 0.5rem;display: block;}
 .status{color: red;padding-left: 0.15rem;padding-right: 0.15rem;}
-.rate{color: white;}
+.rate{color: white;}*/
 .shop_order{width: 100%;height: 0.8rem;position:fixed;left:0;bottom:1.1rem;float:left;text-align:center;font-size: 0.25rem;color: white;}
 .shop_order input{width: 100%;height: 0.8rem;background:orangered ;border: none;outline: none;color: white;font-size: 0.3rem;font-weight: bolder;-webkit-appearance: none;}
 .shop_order01{width: 100%;height: 0.8rem;position:fixed;left:0;bottom:2.1rem;float:left;text-align:center;font-size: 0.25rem;color: white;}
@@ -120,3 +121,10 @@ b{color: red;}
 .detail_pass{border-bottom:thin solid #919191 ;padding-bottom: 0.2rem;}
 .detail_bottom{border-bottom:thin solid #919191 ;padding-bottom: 0.2rem;}
 .rate_color{color: red;}
+
+.dingdan_mr{margin-top: 0.25rem}
+.dingdan_name{display: block;text-align: center;color: white;font-weight:bold;background: #454545;}
+.dingdan_time{float: left;display: block;}
+.dingdan_status{float: left;display: block;color: red;}
+.dingdan_rate{float: left;display: block;}
+.dingdan_li{margin-top: 0.05rem !important;border-bottom: thin solid #454545;line-height: 0.25rem;height: 0.25rem}
