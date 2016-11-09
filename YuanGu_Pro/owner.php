@@ -36,7 +36,7 @@
 			
 		</style>
 	</head>
-	<body>
+	<body onbeforeunload="checkLeave()">
 		<div class="menu_header clearfix">
 			<div class="bao">
 				<span><?php echo ($accd==''?$user_obj['nickname']:'全部');?>的订单</span>
@@ -89,10 +89,13 @@
         			$(this).addClass('active');
         		});
         		$(document).ready(function(){
+        			var timer;
         			$("#jiesuan").click(function(){
-        				$.ajax({
+        				timer = setInterval(function(){
+        					$.ajax({
         					type:"get",
-        					url:"",
+        					url:"xxx.php",
+        					data:{"menu_name":$('.dingdan_name').val(),"menu_status":$('.dingdan_status').val()},
         					async:true,
         					dataType:"json",
         					success:function(data){
@@ -106,6 +109,10 @@
         						alert("发生错误"+jqXHR.status);
         					}
         				});
+        				},1000);
+        				function checkLeave(){
+        					clearInterval(timer);
+        				}
         			});
         		});
         	</script>
