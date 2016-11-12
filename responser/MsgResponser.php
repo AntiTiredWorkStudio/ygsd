@@ -1,4 +1,6 @@
 <?php
+//$UM = new USManager();
+//echo $UM->IsAdmintrator('oiqWTwmr-lCPaLJ8fnl3Qqv6wfkY');
 include_once('Respond.php');
 use EasyWeChat\Message\News;
 $news_setting = new News([
@@ -18,9 +20,10 @@ $MsgList = [
 	'接单'=>[
 		'description'=>'接单',
 			'methord'=>function() { 
-			if(MsgRespond::$LastMsg->userid == 'oiqWTwmr-lCPaLJ8fnl3Qqv6wfkY' || MsgRespond::$LastMsg->userid == 'oiqWTwoS7cK1KiHc8jmXb91L4WLM'
-				|| MsgRespond::$LastMsg->userid == 'oiqWTwourx3IxuS0Ut9hphctOyT4')
-			return  $GLOBALS['news_AdminOrder'];
+			$UM = new USManager();
+			if($UM->IsAdmintrator(MsgRespond::$LastMsg->userid)){
+				return  $GLOBALS['news_AdminOrder'];
+			}
 			else{
 				return '您没有这个权限!';
 			}
@@ -102,45 +105,37 @@ $MsgList = [
 	'管理'=>[
 			'description'=>'管理权限',
 			'methord'=>function() { 
-			if(!(new AdminManager())->GetUser(MsgRespond::$LastMsg->userid)){
+			
+			$US = 
+				(new USManager());
+			if(!$US->IsAdmintrator(MsgRespond::$LastMsg->userid)){
 				return '还未注册!';
 			}
 			return $GLOBALS['news_setting'];//.MsgRespond::$LastMsg->msgContent;
 		}
 	],
-	'注册'=>[
+	'konglf2112'=>[
 			'description'=>'注册',
 			'methord'=>function() { 
-			$AM = 
-				(new AdminManager());
-			$u = $AM->GetUser(MsgRespond::$LastMsg->userid);
-			if(!empty($u)){
-				switch($u->State){
+			$US = 
+				(new USManager());
+			
+			//$u = $AM->GetUser(MsgRespond::$LastMsg->userid);
+			if($US->IsAdmintrator(MsgRespond::$LastMsg->userid)){
+				/*switch($u->State){
 					case 'unline':
 					return '已经注册了，无需再注册!';
 					case 'unregisted':
 					return '还未登陆，请登录。';
+				}*/
+				return '您已经是管理员了！';
+			}else{
+				$AM = new AdminManager();
+				if($AM->InsertUser(MsgRespond::$LastMsg->userid)){
+					return '您已成为管理员！';
+				}else{
+					return '登记失败';
 				}
-			}
-			if($AM->InsertUser(MsgRespond::$LastMsg->userid)){
-				return '登记成功,请输入管理员密码:';
-			}else{
-				return '登记失败';
-			}
-		}
-	],
-	'登陆'=>[
-			'description'=>'登陆',
-			'methord'=>function() { 
-			$AM = 
-				(new AdminManager());
-			if(!$AM->GetUser(MsgRespond::$LastMsg->userid)){
-				return '还未注册!';
-			}
-			if($AM->InsertUser(MsgRespond::$LastMsg->userid)){
-				return '注册成功';
-			}else{
-				return '注册失败';
 			}
 		}
 	],
