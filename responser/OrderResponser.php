@@ -46,8 +46,9 @@ while(isset($_POST['Dish'.$index])){
 	echo 'totnew';
 	//Header('Location: '.$urls['index']);
 }*/
- 
- 
+
+//$BC = new Broadcaster();
+//$BC->BrocastNewsToAllAdmin();
 
 echo "{ \"confirm\": \"".$ODM->confirmCode."\", \"secret\": \"".$ODM->confirm_Secret."\", \"targetUrl\": \""._URL('ownd','od='.$ODM->confirm_Secret)."\" }";
 ?>

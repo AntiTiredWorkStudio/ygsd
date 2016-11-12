@@ -7,6 +7,7 @@
 			include_once('../manager/OrderManager.php');
 			include_once('../manager/MenuManager.php');
 			include_once('../manager/SourcesManager.php');
+			include_once('../attach/Broadcaster.php');
 			use SourcesManager as S;
 			
 			
@@ -23,6 +24,8 @@
 			
 			if(isset($_GET['a']) && $_GET['a']=='Submiting'){
 				$OM->UpdateOrderStatus($_GET['od'],'Submited');
+				$AM = new Broadcaster();
+				$AM->BrocastNewsToAllAdmin();
 			}
 			
 			if(isset($_GET['od'])){

@@ -29,6 +29,18 @@ class AdminManager extends DBManager{
 			return false;
 		}
 	}
+	public function GetAllAdmins(){
+		$this->CreateDBLink();
+		$sql = 'SELECT `openid` FROM `'.$GLOBALS['tables']['tAdmin']['name'].'` WHERE 1';
+		$result = mysql_query($sql,$this->dbLink);
+		$resultArray = [];
+		$index = 0;
+		while($row = mysql_fetch_array($result)){
+			$resultArray[$index] =  $row['openid'];
+			$index ++;
+		}
+		return $resultArray;
+	}
 	public function GetUser($openid){
 		//$this->CreateDBLink();
 		$sql = 'select * from '.$GLOBALS['tables']['tAdmin']['name'].' where openid="'.$openid.'"';

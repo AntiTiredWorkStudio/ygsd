@@ -2,6 +2,8 @@
 include_once('conf.php');
 include_once('attach/WriteRecode.php');
 include_once('responser/MsgResponser.php');
+include_once('manager/USManager.php');
+include_once('manager/AdminManager.php');
 use EasyWeChat\Message\News;
 
 		
