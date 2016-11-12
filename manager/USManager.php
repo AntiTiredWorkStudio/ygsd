@@ -21,7 +21,16 @@ class USManager extends DBManager{
 					'RegistTimeID'=>'CURRENT_TIME()',
 				],false);
 	}
-	
+	public function IsAdmintrator($openid){
+		$this->CreateDBLink();
+		$sql = 'select * from '.$GLOBALS['tables']['tAdmin']['name'].' where openid="'.$openid.'"';
+		$result = mysql_query($sql,$this->dbLink);
+		if(mysql_fetch_row($result)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function GetUser($openid){
 		$this->CreateDBLink();
 		$sql = 'select * from '.$GLOBALS['tables']['tUser']['name'].' where UserID="'.$openid.'"';

@@ -2,6 +2,7 @@
 include_once('../conf.php');
 include_once('../responser/Respond.php');
 include_once('../manager/DBManager.php');
+include_once('../manager/AdminManager.php');
 $REQUEST = 'Setting.php?key='.constant("KEY").'&action=';
 //设置命令列表
 $ActionEventList = [
@@ -29,6 +30,49 @@ $ActionEventList = [
 				echo $GLOBALS['ActionEventList']['InitDB']['description'];
 		}
 	] ,
+	'InitGroup'=>[
+		'description'=>'初始化用户组',
+		'methord'=>function(){
+			$group = $GLOBALS['app']->user_group;
+			$group->create('admin');
+			$group->create('user');
+		}
+	],
+	'ShowGroup'=>[
+		'description'=>'查看用户组',
+		'methord'=>function(){
+			$group = $GLOBALS['app']->user_group;
+			$groups = $group->lists();
+			var_dump($groups);
+		}
+	],
+	'DeleteGroup'=>[
+		'description'=>'删除用户组',
+		'methord'=>function(){
+			$group = $GLOBALS['app']->user_group;
+		//	$group->delete(104);
+		//	$group->delete(105);
+		//	$group->delete(102);
+		//	$group->delete(103);
+		//	$group->delete('user');
+		}
+	],
+	'AddAdministrator'=>[
+		'description'=>'增加管理员至组',
+		'methord'=>function(){
+			$group = $GLOBALS['app']->user_group;
+			$AM = new AdminManager();
+			$admins = $AM->GetAllAdmins();
+			foreach($admins as $key=>$value){
+				$group->moveUser($value, 106);
+			}
+		//	$group->delete(104);
+		//	$group->delete(105);
+		//	$group->delete(102);
+		//	$group->delete(103);
+		//	$group->delete('user');
+		}
+	],
 	'ACTest'=>[
 		'description'=>'测试Access_Token类',
 		'methord'=>function() { 

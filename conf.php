@@ -33,9 +33,9 @@ $options = [
   //...
 ];
 $state = [
-	'Submiting'=>'还未确认',
+	'Submiting'=>'未确认',
 	'Submited'=>'已提交',
-	'Accepted'=>'商家已接单',
+	'Accepted'=>'已接单',
 	'Success'=>'已完成',
 	'Close'=>'已取消'
 ];
@@ -166,6 +166,7 @@ $rUrls = ['ind'=> _BUNDLE().'/index.php',
 		'reg' => _BUNDLE().'/register.php',
 		'map' => _BUNDLE().'/map.php',
 		'regr' =>'base/RegisterResponser.php',
+		//'our' =>'responser/OrderUpdateResponser.php',
 		'opt' =>'attach/Setting.php?key='.constant("KEY"),
 ];
 //公众号按钮定义

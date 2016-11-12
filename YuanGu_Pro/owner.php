@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<?php 
@@ -12,10 +11,16 @@
 				$accd = 'accd='.$_GET['accd'];
 			}
 			$OM = new OrderManager();
-			$orders = ($accd=='')?($OM->GetOrder($_COOKIE['openid'])):($OM->GetAllOrder());
+			
+			if($accd == '')
+				$openid = $_COOKIE['openid'];//'oiqWTwourx3IxuS0Ut9hphctOyT4';
+			
+			$orders = ($accd=='')?($OM->GetOrder($openid)):($OM->GetAllOrder());
 			
 			$USM = new USManager();
-			$user_obj = $USM->GetUser($_COOKIE['openid']);
+			
+			if($accd == '')
+			$user_obj = $USM->GetUser($openid);
 		//	(new DBManager())->
 			//foreach($user_obj as $key=>$value){
 			//	echo $key.'=>'.$value;
@@ -36,7 +41,7 @@
 			
 		</style>
 	</head>
-	<body>
+	<body onbeforeunload="checkLeave()">
 		<div class="menu_header clearfix">
 			<div class="bao">
 				<span><?php echo ($accd==''?$user_obj['nickname']:'全部');?>的订单</span>
@@ -44,7 +49,7 @@
 			    <a href="<?php echo _URL('ind');?>" class="right">退出</a>
 			</div>
 		</div>
-		<div class="menu_content clearfix" style="overflow:auto;height:400px;">
+		<div class="menu_content clearfix" >
 			<ul class="shop_list">
 			<?php 
 				foreach($orders as $key=>$value){
@@ -52,16 +57,16 @@
 						continue;
 					}
 			?>
-			<div class="dingdan_mr">
+			<div class="dingdan_mr clearfix" ool="root">
 				<li><a href="<?php echo _URL('ownd','od='.$value['OrderSecret'].($accd==''?'':('&'.$accd)));?>">
 					<?php if($accd!=''){?>
 					<span class="dingdan_name"><?php echo $USM->GetUser($value['UserID'])['nickname'];?></span>
 				</li>	<?php }?>
-				<li class="dingdan_li">	
-				    <span class="dingdan_time"><?php echo $value['OrderDate'];?></span>
-					<span class="dingdan_time"><?php echo $value['OrderTime'];?></span>
-					<span class="dingdan_status"><?php echo _STATE($value['State']);?></span>
-					<span class="dingdan_rate">￥<?php echo $value['OrderPrice'];?></span>
+				<li class="dingdan_li">
+				    <span class="dingdan_time" style="text-indent: 0.8rem"><?php echo $value['OrderDate'];?></span>
+					<span class="dingdan_time" style="text-indent: 0.2rem"><?php echo $value['OrderTime'];?></span>
+					<span class="dingdan_status" style="text-indent: 0.2rem" os="<?php echo $value['OrderSecret'];?>"><?php echo _STATE($value['State']);?></span>
+					<span class="dingdan_rate" style="text-indent: 0.2rem">￥ <?php echo $value['OrderPrice'];?> </span>
 				</a></li>
 		    </div>
 			<?php }?>
@@ -73,6 +78,7 @@
 				<input type="button" value="返回菜单" />
 			</a>
 		</div>
+		<div style="width: 100%;float: left;height: 2.0rem;visibility: hidden;">xxxxxxxxxxx</div>
 		<div class="footer ">
         	<div class="top">
 	        	<ul>
@@ -88,26 +94,59 @@
         			$(this).siblings().removeClass('active');
         			$(this).addClass('active');
         		});
+				//	alert('dataJson:');
+        		var timer;
+				var dataJson = {};
         		$(document).ready(function(){
-        			$("#jiesuan").click(function(){
-        				$.ajax({
-        					type:"get",
-        					url:"",
+					$("[os]").each(function(iIndex,gElement){
+						//alert(iIndex+":"+$(gElement).attr("os"));
+						dataJson[iIndex] = $(gElement).attr("os");
+					});
+					timer = setInterval(function(){
+        					$.ajax({
+        					type:"post",
+        					url:"<?php echo _URLD('res','url');?>/OrderUpdateResponser.php<?php echo ($accd==''?'':('?'.$accd));?>",
+        					data:dataJson,//{"menu_name":$('.dingdan_name').text(),"menu_status":$('.dingdan_status').text()},
         					async:true,
-        					dataType:"json",
-        					success:function(data){
-        						if(data.success){
+        					dataType:"text",
+        					success:function(data, textStatus){
+        						//console.log(data);
+								var dataJson = JSON.parse(data);
+								for(var key in dataJson){  
+									if($("span[os='"+key+"']").attr('os')){
+										$("span[os="+key+"]").text(dataJson[key]['state']);
+								//		alert('改');
+									}else{
+										var htm = '<li><a href='+dataJson[key]['url']+'><span class="dingdan_name">'+dataJson[key]['nickname']+'</span></li><li class="dingdan_li">'+
+					'<span class="dingdan_time" style="text-indent: 0.8rem">'+dataJson[key]['date']+'</span>'+
+					'<span class="dingdan_time" style="text-indent: 0.2rem">'+dataJson[key]['time']+'</span>'+
+					'<span class="dingdan_status" style="text-indent: 0.2rem" os="'+key+'">'+dataJson[key]['state']+'</span>'+
+					'<span class="dingdan_rate" style="text-indent: 0.2rem">￥'+dataJson[key]['price']+'</span></a></li>';
+										var target=$(htm);
+										$('div[ool="root"]').prepend(target); 
+										console.log('添'+key);
+									}
+									
+								}  
+								//$("[os="++"]")
+        						/*if(data.success){
         							$(".express").html(data.msg);
         						}else{
         							$(".express").html("出现错误："+data.msg);
-        						}
+        						}*/
         					},
         					error:function(jqXHR){
-        						alert("发生错误"+jqXHR.status);
+        						//alert("发生错误"+jqXHR.status);
         					}
         				});
-        			});
+        				},3000);
+						
+        			//$("#jiesuan").click(function(){
+        			//});
         		});
+				function checkLeave(){
+        			clearInterval(timer);
+        		}
         	</script>
         </div>
 	</body>

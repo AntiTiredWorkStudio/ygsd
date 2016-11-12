@@ -122,9 +122,10 @@ b{color: red;}
 .detail_bottom{border-bottom:thin solid #919191 ;padding-bottom: 0.2rem;}
 .rate_color{color: red;}
 
-.dingdan_mr{margin-top: 0.25rem}
+.dingdan_mr{margin-top: 0.25rem;width: 100%}
 .dingdan_name{display: block;text-align: center;color: white;font-weight:bold;background: #454545;}
 .dingdan_time{float: left;display: block;}
 .dingdan_status{float: left;display: block;color: red;}
 .dingdan_rate{float: left;display: block;}
-.dingdan_li{margin-top: 0.05rem !important;border-bottom: thin solid #454545;line-height: 0.25rem;height: 0.25rem}
+.dingdan_li{margin-top: 0.05rem !important;border-bottom: thin solid #454545;line-height: 0.25rem;height: 0.25rem;width: 100%}
+.dingdan_li span{text-indent: 0.2rem;display: block;}
