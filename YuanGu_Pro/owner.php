@@ -42,6 +42,9 @@
 		</style>
 	</head>
 	<body onbeforeunload="checkLeave()">
+	<audio src="mp3/new.mp3" autobuffer="autobuffer" id="menu_new"></audio>
+	<audio src="mp3/update.mp3" autobuffer="autobuffer" id="menu_update"></audio>
+	
 		<div class="menu_header clearfix">
 			<div class="bao">
 				<span><?php echo ($accd==''?$user_obj['nickname']:'全部');?>的订单</span>
@@ -51,13 +54,13 @@
 		</div>
 		<div class="menu_content clearfix" >
 			<ul class="shop_list">
+			<div class="dingdan_mr clearfix" ool="root">
 			<?php 
 				foreach($orders as $key=>$value){
 					if($accd !='' && $value['State'] == 'Submiting'){
 						continue;
 					}
 			?>
-			<div class="dingdan_mr clearfix" ool="root">
 				<li><a href="<?php echo _URL('ownd','od='.$value['OrderSecret'].($accd==''?'':('&'.$accd)));?>">
 					<?php if($accd!=''){?>
 					<span class="dingdan_name"><?php echo $USM->GetUser($value['UserID'])['nickname'];?></span>
@@ -68,8 +71,9 @@
 					<span class="dingdan_status" style="text-indent: 0.2rem" os="<?php echo $value['OrderSecret'];?>"><?php echo _STATE($value['State']);?></span>
 					<span class="dingdan_rate" style="text-indent: 0.2rem">￥ <?php echo $value['OrderPrice'];?> </span>
 				</a></li>
-		    </div>
+		    
 			<?php }?>
+			</div>
 			</ul>
 		</div>
 		
@@ -112,10 +116,21 @@
         					success:function(data, textStatus){
         						//console.log(data);
 								var dataJson = JSON.parse(data);
+								var mp3_new = document.getElementById('menu_new');
+								var mp3_update = document.getElementById('menu_update');
 								for(var key in dataJson){  
 									if($("span[os='"+key+"']").attr('os')){
-										$("span[os="+key+"]").text(dataJson[key]['state']);
-								//		alert('改');
+										if(dataJson[key]['state'] != $("span[os='"+key+"']").text()){
+											console.log(dataJson[key]['state']+' , '+$("span[os="+key+"]").text());
+											$("span[os='"+key+"']").text(dataJson[key]['state']);
+											mp3_update.play();
+											mp3_update.currentTime = 0;
+//											alert('改');
+										}
+										//
+									//*************播放更新音效**************
+                                    //mp3_new.stop();
+									//mp3_update.pause();
 									}else{
 										var htm = '<li><a href='+dataJson[key]['url']+'><span class="dingdan_name">'+dataJson[key]['nickname']+'</span></li><li class="dingdan_li">'+
 					'<span class="dingdan_time" style="text-indent: 0.8rem">'+dataJson[key]['date']+'</span>'+
@@ -123,8 +138,20 @@
 					'<span class="dingdan_status" style="text-indent: 0.2rem" os="'+key+'">'+dataJson[key]['state']+'</span>'+
 					'<span class="dingdan_rate" style="text-indent: 0.2rem">￥'+dataJson[key]['price']+'</span></a></li>';
 										var target=$(htm);
-										$('div[ool="root"]').prepend(target); 
+										if($('div[ool="root"] span').length >0){
+											//alert('>0');
+											$('div[ool="root"]').prepend(target); 
+										}else{
+											//alert('==0');
+											$('div[ool="root"]').append(target); 
+										}
 										console.log('添'+key);
+									//*************播放新增音效**************
+									//mp3_update.stop();
+
+									mp3_new.play();
+									mp3_new.currentTime = 0;
+									//mp3_new.pause();
 									}
 									
 								}  

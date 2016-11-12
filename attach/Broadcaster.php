@@ -14,8 +14,8 @@ class Broadcaster{
 	public function Broadcaster(){$this->broadcast = $GLOBALS['app']->broadcast;}
 	
 	public function BrocastNewsToAllAdmin(){
-		$GLOBALS['app']->broadcast->previewNews('8SrdMI4to1UuOQkDABCadUdhEBP6Q_XUYVOnvRiFYUU','oiqWTwmr-lCPaLJ8fnl3Qqv6wfkY');
-	//	$this->broadcast->sendNews('8SrdMI4to1UuOQkDABCadUdhEBP6Q_XUYVOnvRiFYUU');
+	//	$GLOBALS['app']->broadcast->previewNews('8SrdMI4to1UuOQkDABCadUdhEBP6Q_XUYVOnvRiFYUU','oiqWTwmr-lCPaLJ8fnl3Qqv6wfkY');
+		$this->broadcast->sendText('接到新的订单'.time());
 	}
 }
 ?>
