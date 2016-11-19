@@ -1,7 +1,8 @@
 /*-----------------基本样式----------------*/
 html {
     font-size: 50px;
-    color: #222;
+    /*color: #222;*/
+	color:#fff;
     font-family: "微软雅黑";
     height: 100%;
 }

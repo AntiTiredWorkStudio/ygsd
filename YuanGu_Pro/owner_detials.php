@@ -13,6 +13,7 @@
 			
 			
 			$accd = '';
+			
 			if(isset($_GET['accd'])){
 				$accd = 'accd='.$_GET['accd'];
 				include_once('../manager/USManager.php');
@@ -22,12 +23,6 @@
 			$OM = new OrderManager();
 			
 			
-			if(isset($_GET['a']) && $_GET['a']=='Submiting'){
-				$OM->UpdateOrderStatus($_GET['od'],'Submited');
-				$AM = new Broadcaster();
-				$AM->BrocastNewsToAllAdmin();
-			}
-			
 			if(isset($_GET['od'])){
 				$order = $OM->GetSingleOrder($_GET['od']);
 				$dishes = $OM->GetDishes($_GET['od']);
@@ -35,6 +30,38 @@
 				echo '不知道你要请求的是哪个订单.';
 				exit;
 			}
+			
+			if(isset($_GET['a']) && $_GET['a']=='Submiting'){
+				if($order['State'] == 'Submiting'){
+					$AM = new Broadcaster();
+					$AM->BrocastTextToAllAdmin('oiqWTwourx3IxuS0Ut9hphctOyT4',
+					_URL('ownd','od='.$_GET['od'].'&accd=admin'),
+						["first"  => "接收到了订单请求！",
+						 "name"   => (new USManager())->GetUser($order['UserID'])['nickname'],
+						 "tel"  => (new USManager())->GetUser($order['UserID'])['tele'],
+						 "price" => $order['OrderPrice'].'￥',
+						 "remark" => "请到店家页面进行查看！",]
+					);
+				}				
+			}
+			$OM = new OrderManager();
+			if(isset($_GET['a'])){
+				switch($_GET['a']){
+					case 'Submiting':
+						$OM->UpdateOrderStatus($_GET['od'],'Submited');
+						break;
+					case 'Accepted':
+						$OM->UpdateOrderStatus($_GET['od'],'Accepted');
+						break;
+					case 'Close':
+						$OM->UpdateOrderStatus($_GET['od'],'Close');
+						break;
+					default:
+						break;
+				}
+			}
+			$OM = new OrderManager();
+			$order = $OM->GetSingleOrder($_GET['od']);
 		?>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -128,6 +155,7 @@
 		</div>
 		<?php }
 			}
+			if($accd != 'accd=admin'){
 		?>
 		<div class="footer">
         	<div class="top">
@@ -139,12 +167,31 @@
 	        		<li class="active"><a href="<?php echo _URL('own');?>"><div><img src="img/li_5.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
 	        	</ul>
         	</div>
+        </div>
+		<?php
+			}else{
+				if($order['State']!='Close'){
+		?><div class="shop_order">
+			<a href="<?php echo _URL('ownd','a=Accepted&od='.$_GET['od'].'&accd=admin');?>">
+				<input type="button" value="确认接单" />
+			</a>
+			</br>
+			</br>
+			<a href="<?php echo _URL('ownd','a=Close&od='.$_GET['od'].'&accd=admin');?>">
+				<input type="button" value="关闭交易" />
+			</a>
+		</div>
+		<?php
+				
+				}
+			}
+		?>
+		
         	<script type="text/javascript">
         		$('.top li').click(function(){
         			$(this).siblings().removeClass('active');
         			$(this).addClass('active');
         		});
         	</script>
-        </div>
 	</body>
 </html>

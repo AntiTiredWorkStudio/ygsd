@@ -81,14 +81,14 @@
 		   </div>
 		</div>
 		
-		<div class="footer ">
+		<div class="footer clearfix">
         	<div class="top">
 	        	<ul>
-	        		<li><a href="<?php echo _URL('ind');?>"><div><img src="img/li_1.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp首页</span></div></a></li>
-	        		<li class="active"><a href="<?php echo _URL('men');?>"><div><img src="img/li_2.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp点餐</span></div></a></li>
-	        		<li><a href="<?php echo _URL('sho');?>"><div><img src="img/li_3.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp商城</span></div></a></li>
-	        		<li><a href="<?php echo _URL('card');?>"><div><img src="img/li_4.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp游戏</span></div></a></li>
-	        		<li><a href="<?php echo _URL('own');?>"><div><img src="img/li_5.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
+	        		<li><a href="<?php echo _URL('ind');?>"><img src="img/li_1.png"><span style="font-size:12px; color:#FFF;">&nbsp首页</span></a></li>
+	        		<li class="active"><a href="<?php echo _URL('men');?>"><img src="img/li_2.png"><span style="font-size:12px; color:#FFF;">&nbsp点餐</span></a></li>
+	        		<li><a href="<?php echo _URL('sho');?>"><img src="img/li_3.png"><span style="font-size:12px; color:#FFF;">&nbsp商城</span></a></li>
+	        		<li><a href="<?php echo _URL('card');?>"><img src="img/li_4.png"><span style="font-size:12px; color:#FFF;">&nbsp游戏</span></a></li>
+	        		<li><a href="<?php echo _URL('own');?>"><img src="img/li_5.png"><span style="font-size:12px; color:#FFF;">&nbsp我的</span></a></li>
 	        	</ul>
         	</div>
 		<div class="total clearfix">
