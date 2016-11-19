@@ -13,7 +13,7 @@
 			$OM = new OrderManager();
 			
 			if($accd == '')
-				$openid = $_COOKIE['openid'];//'oiqWTwourx3IxuS0Ut9hphctOyT4';
+				$openid = $_COOKIE['openid'];//'oiqWTwourx3IxuS0Ut9hphctOyT4';//
 			
 			$orders = ($accd=='')?($OM->GetOrder($openid)):($OM->GetAllOrder());
 			
@@ -68,7 +68,7 @@
 				<li class="dingdan_li">
 				    <span class="dingdan_time" style="text-indent: 0.8rem"><?php echo $value['OrderDate'];?></span>
 					<span class="dingdan_time" style="text-indent: 0.2rem"><?php echo $value['OrderTime'];?></span>
-					<span class="dingdan_status" style="text-indent: 0.2rem" os="<?php echo $value['OrderSecret'];?>"><?php echo _STATE($value['State']);?></span>
+					<span class="dingdan_status" style="text-indent: 0.2rem;" os="<?php echo $value['OrderSecret'];?>"><?php echo _STATE($value['State']);?></span>
 					<span class="dingdan_rate" style="text-indent: 0.2rem">￥ <?php echo $value['OrderPrice'];?> </span>
 				</a></li>
 		    
@@ -77,6 +77,7 @@
 			</ul>
 		</div>
 		
+		<?php if($accd != 'accd=admin'){?>
 		<div class="shop_order">
 			<a href="<?php echo _URL('men');?>">
 				<input type="button" value="返回菜单" />
@@ -93,7 +94,10 @@
 	        		<li class="active"><a href="<?php echo _URL('own',$accd);?>"><div><img src="img/li_5.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
 	        	</ul>
         	</div>
+        </div>
+		<?php }?>
         	<script type="text/javascript">
+				//alert("<?php echo $accd; ?>");
         		$('.top li').click(function(){
         			$(this).siblings().removeClass('active');
         			$(this).addClass('active');
@@ -109,12 +113,12 @@
 					timer = setInterval(function(){
         					$.ajax({
         					type:"post",
-        					url:"<?php echo _URLD('res','url');?>/OrderUpdateResponser.php<?php echo ($accd==''?'':('?'.$accd));?>",
+        					url:"<?php echo _URLD('res','url');?>/OrderUpdateResponser.php<?php echo ($accd==''?('?accd='.$openid):('?'.$accd));?>",
         					data:dataJson,//{"menu_name":$('.dingdan_name').text(),"menu_status":$('.dingdan_status').text()},
         					async:true,
         					dataType:"text",
         					success:function(data, textStatus){
-        						//console.log(data);
+        						console.log(data);
 								var dataJson = JSON.parse(data);
 								var mp3_new = document.getElementById('menu_new');
 								var mp3_update = document.getElementById('menu_update');
@@ -132,11 +136,15 @@
                                     //mp3_new.stop();
 									//mp3_update.pause();
 									}else{
-										var htm = '<li><a href='+dataJson[key]['url']+'><span class="dingdan_name">'+dataJson[key]['nickname']+'</span></li><li class="dingdan_li">'+
-					'<span class="dingdan_time" style="text-indent: 0.8rem">'+dataJson[key]['date']+'</span>'+
-					'<span class="dingdan_time" style="text-indent: 0.2rem">'+dataJson[key]['time']+'</span>'+
-					'<span class="dingdan_status" style="text-indent: 0.2rem" os="'+key+'">'+dataJson[key]['state']+'</span>'+
-					'<span class="dingdan_rate" style="text-indent: 0.2rem">￥'+dataJson[key]['price']+'</span></a></li>';
+										var nameTag = '<li><a href='+dataJson[key]['url']+'><span class="dingdan_name">'+dataJson[key]['nickname']+'</span></li>';
+										if('<?php echo $accd;?>'==''){
+											nameTag = '';
+										}
+										var htm = nameTag+'<li class="dingdan_li">'+
+											'<span class="dingdan_time" style="text-indent: 0.8rem">'+dataJson[key]['date']+'</span>'+
+										'<span class="dingdan_time" style="text-indent: 0.2rem">'+dataJson[key]['time']+'</span>'+
+											'<span class="dingdan_status" style="text-indent: 0.2rem" os="'+key+'">'+dataJson[key]['state']+'</span>'+
+										'<span class="dingdan_rate" style="text-indent: 0.2rem">￥'+dataJson[key]['price']+'</span></a></li>';
 										var target=$(htm);
 										if($('div[ool="root"] span').length >0){
 											//alert('>0');
@@ -175,6 +183,5 @@
         			clearInterval(timer);
         		}
         	</script>
-        </div>
 	</body>
 </html>
