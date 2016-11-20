@@ -70,10 +70,10 @@ body{background: #0e0d0c;overflow-x: hidden;}
 .active a{color:#FFF;}
 
 /*---------------------------订餐部分----------------------------*/
-.menu_header{width: 100%;float: left;position: fixed;background:url(../img/header.png) ;font-size: 0.3rem;text-align: center;color: white;padding-top: 0.2rem;padding-bottom: 0.2rem;}
+.menu_header{z-index: 999999;width: 100%;float: left;position: fixed;background:url(../img/header.png) ;font-size: 0.3rem;text-align: center;color: white;padding-top: 0.2rem;padding-bottom: 0.2rem;}
 .menu_header .left{background-image: url(../img/back_white.png);background-repeat:no-repeat ;background-size: cover;width:0.27rem ;height:0.42rem ;float: left;}
 .menu_header .right{float: right;color: white;display: block;}
-.menu_content{width: 100%;float: left;margin-top: 0.95rem;}
+.menu_content{width: 100%;float: left;margin-top: 0.95rem;font-size: 0.25rem}
 .menu_contentcard{width: 100%;float: left;margin-top: 0.95rem;}
 .menu_list{margin: 0 auto;width: 90%;border: solid thin #761474;font-size: 0.25rem;border-radius: 10px;}
 .menu_list li{text-indent: 20px;margin-top: 0.2rem;border: solid thin #761474;border-left: none;border-right: none;margin-bottom: 0.2rem;padding-top:0.2rem;padding-bottom:0.2rem}

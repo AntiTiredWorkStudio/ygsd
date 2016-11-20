@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html>
-	<?php 
-		include_once('../conf.php');
-		include_once('../attach/Accessor.php');
-		include_once('../manager/SourcesManager.php');
-		use SourcesManager as S;
-	?>  
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -17,7 +11,7 @@
 		<!--<script type="text/javascript" src="js/spider.js" ></script>-->
 		<script type="text/javascript" src="js/do.js"></script>
 		<script type="text/javascript" src="js/Mobile.js" ></script>
-		<title>商城</title>
+		<title>订餐中心</title>
 		<style type="text/css">
             /*分类导航*/
 		    .fenlei{width: 100%;float: left;position: fixed;left: 0;top:0.8rem;background-color: #97694F;font-size: 0.25rem;z-index: 9999}
@@ -44,24 +38,23 @@
 	<body>
 		<div class="menu_header clearfix">
 			<div class="bao">
-				<span>商品展示</span>
-			    <a href="<?php echo _URL('ind');?>" class="left"></a>
-			    <a href="<?php echo _URL('ind');?>" class="right">退出</a>
+				<span>菜品展示</span>
+			    <a href="#" class="left"></a>
+			    <a href="#" class="right">退出</a>
 			</div>
 		</div>
 		<div class="fenlei">
 			<div class="bao85">
-				<li><a href="<?php echo _URL('sho','');?>">全部</a></li>
-				<li><a href="<?php echo _URL('sho','t=bread');?>">面包</a></li>
-				<li><a href="<?php echo _URL('sho','t=milk');?>">牛奶</a></li>
-				<li><a href="<?php echo _URL('sho','t=chock');?>">巧克力</a></li>
-				<li><a href="<?php echo _URL('sho','t=cake');?>">蛋糕</a></li>
+				<li><a href="#">全部</a></li>
+				<li><a href="#">面包</a></li>
+				<li><a href="#">牛奶</a></li>
+				<li><a href="#">巧克力</a></li>
+				<li><a href="#">蛋糕</a></li>
 			</div>
 		</div>
 		<div class="menu_content clearfix" style="margin-top: 1.3rem">
             <div class="bao90">
              <!--  第一个 -->
-			 <?php if((isset($_GET['t']) && ($_GET['t']=='bread')) || !isset($_GET['t'])){?>
             	<div class="cai">
             		<div class="pic">
             		<section class="care"></section>
@@ -73,7 +66,6 @@
 	            		<p class="dianzan">已有<font color="red">100</font>人点赞</p>
             	    </div>
             	</div>
-			 <?php }?>
             	  <!--  第一个 -->
             	<div class="cai">
             		<div class="pic">
@@ -139,8 +131,7 @@
 		<script type="text/javascript">
 			$('.cai section').click(function() {
 				   if($(this).hasClass('active')){
-						alert("您已经赞过了!");
-				   //	$(this).removeClass('active');
+				   	$(this).removeClass('active');
 				   }else{
 				   	 $(this).addClass('active');
 				   }
@@ -151,11 +142,11 @@
 		<div class="footer ">
         	<div class="top">
 	        	<ul>
-	        		<li><a href="<?php echo _URL('ind');?>"><div><img src="<?php echo S::_CS("img/li_1.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp首页</span></div></a></li>
-	        		<li><a href="<?php echo  _URL('men');?>"><div><img src="<?php echo S::_CS("img/li_2.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp点餐</span></div></a></li>
-	        		<li class="active"><a href="<?php echo _URL('sho');?>"><div><img src="<?php echo S::_CS("img/li_3.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp商城</span></div></a></li>
-	        		<li><a href="<?php echo _URL('card');?>"><div><img src="<?php echo S::_CS("img/li_4.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp游戏</span></div></a></li>
-	        		<li><a href="<?php echo _URL('own');?>"><div><img src="<?php echo S::_CS("img/li_5.png"); ?>"></div><div><span style="font-size:12px; color:#FFF;">&nbsp我的</span></div></a></li>
+	        		<li class="active"><a href="#"><div><img src="img/li_1.png"></div><div><span style="font-size:12px; color:#FFF;">&nbsp首页</span></div></a></li>
+	        		<li><a href="#"><div><img src="img/li_2.png"></div><div><span style="font-size:12px; color:#FFF;">点餐</span></div></a></li>
+	        		<li><a href="#"><div><img src="img/li_3.png"></div><div><span style="font-size:12px; color:#FFF;">商城</span></div></a></li>
+	        		<li><a href="#"><div><img src="img/li_4.png"></div><div><span style="font-size:12px; color:#FFF;">游戏</span></div></a></li>
+	        		<li><a href="#"><div><img src="img/li_5.png"></div><div><span style="font-size:12px; color:#FFF;">我的</span></div></a></li>
 	        	</ul>
         	</div>
         	
